@@ -61,3 +61,9 @@ p {
 button {
   margin: 20px;
 }
+.image {
+  background-position: center;
+  object-fit: cover;
+  text-align: center;
+  margin: auto;
+}
