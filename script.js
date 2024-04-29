@@ -17,11 +17,10 @@ function dragEnter(e) {}
 function dragLeave(e) {}
 function dragDrop(e) {
 	e.preventDefault()
-dragged item and the target
-  let draggedItemImage = window.getComputedStyle(draggedItem).getPropertyValue("background-image");
-  let targetImage = window.getComputedStyle(this).getPropertyValue("background-image");
-  
-  // Swap the images
-  draggedItem.style.backgroundImage = targetImage;
-  this.style.backgroundImage = draggedItemImage;;
+  let parentItem = this.parentNode;
+  const temp = document.createElement("div");
+  parentItem.insertBefore(temp, draggedItem);
+  parentItem.insertBefore(draggedItem, this);
+  parentItem.insertBefore(this, temp);
+  parentItem.removeChild(temp);
 }
